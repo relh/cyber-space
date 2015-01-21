@@ -28,25 +28,25 @@ with open('top-1m.csv', 'r') as csvfile:
 	 		for I in xrange(dim):
 	 			tuply = random.choice(lines)
 				city[49-i+I][49-j] = 100-(int(tuply[0])/100)
-				sites[(49-i+I,49-j)] = tuply[1]
+				sites[(49-i+I,49-j)] = (100-(int(tuply[0])/100),tuply[1])
 
 				tuply = random.choice(lines)
 				city[49-i+I][49+j] = 100-(int(tuply[0])/100)
-				sites[(49-i+I,49+j)] = tuply[1]
+				sites[(49-i+I,49+j)] = (100-(int(tuply[0])/100),tuply[1])
 	 		for J in xrange(dim):
 	 			tuply = random.choice(lines)
 				city[49-i][49-j+J] = 100-(int(tuply[0])/100)
-				sites[(49-i,49-j+J)] = tuply[1]
+				sites[(49-i,49-j+J)] = (100-(int(tuply[0])/100),tuply[1])
 
 				tuply = random.choice(lines)
 				city[49+i][49-j+J] = 100-(int(tuply[0])/100)
-				sites[(49-i,49-j+J)] = tuply[1]
+				sites[(49-i,49-j+J)] = (100-(int(tuply[0])/100),tuply[1])
 		i += 1
 		j += 1
 		z += 1
 
-with open('./heights', 'w') as f:
+with open('./arrayHeightData', 'w') as f:
 	f.write(str(city))
 
-with open('./sites', 'w') as f:
+with open('./dictionaryData', 'w') as f:
 	f.write(str(sites))
