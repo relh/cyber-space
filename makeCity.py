@@ -46,7 +46,7 @@ with open('top-1m.csv', 'r') as csvfile:
 		z += 1
 
 with open('./heights', 'w') as f:
-	f.write(city)
+	f.write(str(city))
 
 with open('./sites', 'w') as f:
 	f.write(str(sites))
