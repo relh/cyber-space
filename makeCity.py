@@ -18,7 +18,7 @@ with open('top-1m.csv', 'r') as csvfile:
 	 		lines.append(tuple(handle.next()))
 	 		tuply = lines.pop()
 	 		city[49][49] = 100-(int(tuply[0])/100)
-	 		sites[(49,49)] = tuply[1]
+	 		sites[(49,49)] = (100-(int(tuply[0])/100),tuply[1])
 	 	else:
  			num = dim*4-4
 
