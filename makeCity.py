@@ -4,6 +4,7 @@ import random
 
 city = numpy.zeros((100, 100))
 sites = {}
+suffixes = set()
 
 z = 0 
 with open('top-1m.csv', 'r') as csvfile:
@@ -19,11 +20,13 @@ with open('top-1m.csv', 'r') as csvfile:
 	 		tuply = lines.pop()
 	 		city[49][49] = 100-(int(tuply[0])/100)
 	 		sites[(49,49)] = (100-(int(tuply[0])/100),tuply[1])
+	 		suffixes.add(tuply[1].split(".")[-1])
 	 	else:
  			num = dim*4-4
 
 	 		for x in xrange(num):
 	 			lines.append(tuple(handle.next()))
+	 			suffixes.add(tuple(handle.next())[1].split(".")[-1])
 
 	 		for I in xrange(dim):
 	 			tuply = random.choice(lines)
@@ -44,6 +47,9 @@ with open('top-1m.csv', 'r') as csvfile:
 		i += 1
 		j += 1
 		z += 1
+
+with open('./suffixes', 'w') as f:
+	f.write(str(suffixes))
 
 with open('./arrayHeightData', 'w') as f:
 	f.write(str(city))
